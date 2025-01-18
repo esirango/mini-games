@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/Chakra_Petch/ChakraPetch-regular.ttf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: italic;
+    font-weight: 400;
+    src: url("/assets/fonts/Chakra_Petch/ChakraPetch-italic.ttf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/assets/fonts/Chakra_Petch/ChakraPetch-bold.ttf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Chakra Petch";
+    font-style: italic;
+    font-weight: 700;
+    src: url("/assets/fonts/Chakra_Petch/ChakraPetch-bold-italic.ttf")
+        format("truetype");
+}

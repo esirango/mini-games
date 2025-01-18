@@ -1,0 +1,35 @@
+.homePage h1 {
+    margin-top: 35px;
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
+        0px -5px 35px rgba(255, 255, 255, 0.3);
+    font-family: "Chakra Petch";
+}
+
+.homePage .gamesList ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homePage .gamesList ul li {
+    font-family: "Chakra Petch";
+    list-style: none;
+    font-size: 1.7rem;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 300px;
+    text-align: center;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    transition: all ease-in 0.2s;
+}
+
+.homePage .gamesList ul li:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.488);
+    color: #333;
+}
