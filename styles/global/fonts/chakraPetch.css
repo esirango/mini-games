@@ -3,7 +3,9 @@
     font-style: normal;
     font-weight: 400;
     src: url("/assets/fonts/Chakra_Petch/ChakraPetch-regular.ttf")
-        format("truetype");
+            format("truetype"),
+        url("/assets/fonts/Chakra_Petch/ChakraPetch-Regular.woff")
+            format("woff");
 }
 
 @font-face {
