@@ -4,7 +4,7 @@
     color: rgba(0, 0, 0, 0.7);
     text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
         0px -5px 35px rgba(255, 255, 255, 0.3);
-    font-family: "Chakra Petch";
+    /* font-family: "Chakra Petch"; */
 }
 
 .homePage .gamesList ul {
@@ -15,7 +15,7 @@
 }
 
 .homePage .gamesList ul li {
-    font-family: "Chakra Petch";
+    /* font-family: "Chakra Petch"; */
     list-style: none;
     font-size: 1.7rem;
     padding: 10px 15px;
