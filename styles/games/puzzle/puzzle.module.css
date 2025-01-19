@@ -10,10 +10,15 @@
 
 .mainPuzzle h1 {
     font-size: 3rem;
+    text-align: center;
 }
 
 .imagesList {
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagesList h2 {
@@ -22,7 +27,11 @@
     text-align: center;
 }
 
-.imagesList img {
+.imagesList .image {
+    display: flex;
+}
+
+.imagesList .image img {
     width: 250px;
     height: 200px;
     margin: 10px;
@@ -34,6 +43,50 @@
     transition: all ease-in 0.2s;
 }
 
-.imagesList img:hover {
+.imagesList .image img:hover {
     opacity: 1;
+}
+
+.jigsawPuzzle {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.jigsawPuzzle span {
+    font-size: 2rem;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all ease-in 0.2s;
+}
+
+.jigsawPuzzle span:hover {
+    color: #000;
+}
+
+@media (max-width: 760px) {
+    .mainPuzzle h1 {
+        font-size: 2.5rem;
+    }
+
+    .imagesList h2 {
+        font-size: 1.3rem;
+    }
+
+    .imagesList .image {
+        flex-direction: column;
+    }
+
+    .jigsawPuzzle span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .jigsawPuzzle span {
+        font-size: 1rem;
+        font-weight: 500;
+    }
 }
