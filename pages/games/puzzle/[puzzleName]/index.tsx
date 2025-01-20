@@ -9,8 +9,6 @@ import Link from "next/link";
 function index() {
     const { selectedImage, setSelectedImage } = useglobalState();
 
-    console.log(selectedImage);
-
     return (
         <div className={styles.jigsawPuzzle}>
             <JigsawPuzzle
