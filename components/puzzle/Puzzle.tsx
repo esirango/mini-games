@@ -1,52 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "@/styles/games/puzzle/puzzle.module.css";
-import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
 
-import { JigsawPuzzle } from "react-jigsaw-puzzle";
+import ChoosePic from "./ChoosePic";
 
-function Puzzle({ images }: any) {
-    const [selectedImage, setSelectedImage] = useState<string>("");
+function Puzzle({ images, setSelectedImage }: any) {
     return (
-        <div
-            className={styles.mainPuzzle}
-            style={
-                selectedImage
-                    ? { justifyContent: "center" }
-                    : { justifyContent: "flex-start" }
-            }
-        >
-            {selectedImage ? (
-                <div className={styles.jigsawPuzzle}>
-                    <JigsawPuzzle
-                        imageSrc={selectedImage}
-                        rows={5}
-                        columns={5}
-                        onSolved={() => alert("Solved!")}
-                    />
-                    <span onClick={() => setSelectedImage("")}>
-                        Choose another image
-                    </span>
-                </div>
-            ) : (
-                <div className={styles.imagesList}>
-                    <h1>Puzzle Game</h1>
-                    <h2>Choose the puzzle you want</h2>
-                    <div className={styles.image}>
-                        {images?.map((image: string) => (
-                            <div
-                                style={{
-                                    background: `url(${image})`,
-                                    backgroundSize: "cover",
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundPosition: "center",
-                                }}
-                                onClick={() => setSelectedImage(image)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            )}
+        <div className={styles.mainPuzzle}>
+            <ChoosePic images={images} setSelectedImage={setSelectedImage} />
         </div>
     );
 }

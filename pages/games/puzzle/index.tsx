@@ -1,7 +1,10 @@
 import PuzzleGame from "@/components/puzzle/Puzzle";
-import React from "react";
+import useglobalState from "@/store/globalStates";
+import React, { useState } from "react";
 
 function index() {
+    const { selectedImage, setSelectedImage } = useglobalState();
+
     const images = [
         "/assets/img/puzzles/cocacola.jpg",
         "/assets/img/puzzles/vangogh-starry-night.jpg",
@@ -9,7 +12,11 @@ function index() {
     ];
     return (
         <>
-            <PuzzleGame images={images} />{" "}
+            <PuzzleGame
+                images={images}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+            />{" "}
         </>
     );
 }

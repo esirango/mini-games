@@ -1,12 +1,20 @@
-.mainPuzzle {
+.mainPuzzle,
+.jigsawPuzzle {
     width: 100vw;
     min-height: 100vh;
     background-color: #63b6c5ad;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+}
+
+.mainPuzzle {
+    justify-content: flex-start;
+}
+
+.jigsawPuzzle {
+    justify-content: center;
 }
 
 .mainPuzzle h1 {
@@ -48,9 +56,8 @@
     opacity: 1;
 }
 
-.jigsawPuzzle {
+.jigsawPuzzle div {
     width: 50%;
-    margin-top: 10px;
 }
 
 .jigsawPuzzle span {
