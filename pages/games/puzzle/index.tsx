@@ -3,8 +3,9 @@ import React from "react";
 
 function index() {
     const images = [
-        "/assets/img/cocacola.jpg",
-        "/assets/img/vangogh-starry-night.jpg",
+        "/assets/img/puzzles/cocacola.jpg",
+        "/assets/img/puzzles/vangogh-starry-night.jpg",
+        "/assets/img/puzzles/bruce_lee.jpg",
     ];
     return (
         <>

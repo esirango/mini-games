@@ -34,9 +34,13 @@ function Puzzle({ images }: any) {
                     <h2>Choose the puzzle you want</h2>
                     <div className={styles.image}>
                         {images?.map((image: string) => (
-                            <img
-                                src={image}
-                                alt={image}
+                            <div
+                                style={{
+                                    background: `url(${image})`,
+                                    backgroundSize: "cover",
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundPosition: "center",
+                                }}
                                 onClick={() => setSelectedImage(image)}
                             />
                         ))}

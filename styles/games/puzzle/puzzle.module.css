@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .mainPuzzle h1 {
@@ -31,7 +32,7 @@
     display: flex;
 }
 
-.imagesList .image img {
+.imagesList .image div {
     width: 250px;
     height: 200px;
     margin: 10px;
@@ -43,7 +44,7 @@
     transition: all ease-in 0.2s;
 }
 
-.imagesList .image img:hover {
+.imagesList .image div:hover {
     opacity: 1;
 }
 
