@@ -17,8 +17,8 @@ function index() {
         <div className={styles.jigsawPuzzle}>
             <JigsawPuzzle
                 imageSrc={selectedImage}
-                rows={5}
-                columns={5}
+                rows={3}
+                columns={3}
                 onSolved={() => {
                     if (!solved) {
                         solved = true;
