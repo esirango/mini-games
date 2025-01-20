@@ -14,7 +14,10 @@ function ChoosePic({ images, setSelectedImage }: any) {
             <h2>Choose the puzzle you want</h2>
             <div className={styles.image}>
                 {images?.map((image: string) => (
-                    <Link href={`/games/puzzle/${renderPuzzleName(image)}`}>
+                    <Link
+                        href={`/games/puzzle${renderPuzzleName(image)}`}
+                        key={image}
+                    >
                         <div
                             style={{
                                 background: `url(${image})`,
