@@ -97,8 +97,12 @@
 }
 
 @media (max-width: 580px) {
+    .jigsawPuzzle div {
+        width: 70%;
+    }
+
     .jigsawPuzzle span {
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 500;
     }
 }
