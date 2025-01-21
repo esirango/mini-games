@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Board from "./Board";
 
-import styles from "@/styles/games/ticTacToe/ticTacToe.module.css";
+import styles from "@/styles/games/tic-tac-toe/ticTacToe.module.css";
 
 export default function Game() {
     const [squares, setSquares] = useState(Array(9).fill(null));

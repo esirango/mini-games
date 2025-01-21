@@ -1,0 +1,115 @@
+.main {
+    width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #6268b8b2;
+    padding: 30px 0;
+}
+
+.main .gameBoard {
+    display: flex;
+    margin-top: 70px;
+}
+
+.main .gameBoard .userSection,
+.main .gameBoard .computerSection {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main .gameBoard .userSection h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main .gameBoard .userSection div span {
+    background-color: #eed93c;
+    text-shadow: 0.5px 0.5px 3px #616161;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 0 5px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    transition: all ease-in 0.2s;
+}
+
+.main .gameBoard .userSection span:hover {
+    text-shadow: 0.5px 0.5px 3px #616161, -0.5px -0.5px 3px #616161;
+}
+
+.main .gameBoard .userSection span:active {
+    text-shadow: 0.5px 0.5px 3px #000, -0.5px -0.5px 3px #000;
+}
+
+.main .gameBoard .userSection div {
+    margin: 20px 0;
+}
+
+.main .gameBoard .computerSection .computerChoice,
+.main .gameBoard .userSection .userChoice {
+    width: 200px;
+    height: 200px;
+    margin: 10px 40px;
+    background-position: center;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    transform: scaleX(-1) !important;
+}
+
+.main .gameBoard .userSection .userChoice {
+    transform: scaleX(1) !important;
+}
+
+.main .gameBoard .computerSection p,
+.main .gameBoard .userSection p {
+    width: 200px;
+    height: 200px;
+    margin: 10px 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    border: 1px solid salmon;
+}
+
+.main .gameBoard .computerSection span {
+    text-align: center;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+.main .scoreBoard {
+    margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    .main .gameBoard {
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .main .gameBoard .computerSection span,
+    .main .gameBoard .userSection h2 {
+        margin-top: 0;
+    }
+
+    .main .scoreBoard {
+        margin-top: 0;
+    }
+}

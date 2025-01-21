@@ -1,4 +1,4 @@
-import Game from "@/components/ticTacToe/Game";
+import Game from "@/components/tic-tac-toe/Game";
 import React from "react";
 
 function index() {

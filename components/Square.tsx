@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "@/styles/games/ticTacToe/ticTacToe.module.css";
+import styles from "@/styles/games/tic-tac-toe/ticTacToe.module.css";
 
 export default function Square({ value, onClick }: any) {
     return (
