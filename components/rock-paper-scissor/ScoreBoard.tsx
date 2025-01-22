@@ -2,10 +2,11 @@ import React from "react";
 
 import styles from "@/styles/games/rock-paper-scissor/rockPaperScissor.module.css";
 
-function ScoreBoard() {
+function ScoreBoard({ computerScore, userScore }: any) {
     return (
         <div className={styles.scoreBoard}>
-            <h1>ScoreBoard</h1>
+            <span>{userScore} :</span>
+            <span> {computerScore}</span>
         </div>
     );
 }

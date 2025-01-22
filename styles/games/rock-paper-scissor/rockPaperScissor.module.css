@@ -12,7 +12,7 @@
 
 .main .gameBoard {
     display: flex;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .main .gameBoard .userSection,
@@ -26,7 +26,6 @@
 .main .gameBoard .userSection h2 {
     font-size: 1.2rem;
     text-align: center;
-    margin-top: 20px;
 }
 
 .main .gameBoard .userSection div span {
@@ -66,6 +65,10 @@
     transform: scaleX(-1) !important;
 }
 
+.main .gameBoard .computerSection .computerChoice {
+    margin: 20px 40px 0 40px;
+}
+
 .main .gameBoard .userSection .userChoice {
     transform: scaleX(1) !important;
 }
@@ -75,7 +78,6 @@
     width: 200px;
     height: 200px;
     margin: 10px 40px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,16 +93,33 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    margin-top: 20px;
-}
-.main .scoreBoard {
-    margin-top: 100px;
 }
 
+.main .scoreBoard {
+    margin-top: 30px;
+}
+
+.main .scoreBoard span {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.main .restartButton {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3cb3ee;
+    transition: all ease-in 0.2s;
+    cursor: pointer;
+}
+
+.main .restartButton:hover {
+    color: #000;
+}
 @media (max-width: 768px) {
     .main .gameBoard {
         flex-direction: column;
-        margin-top: 20px;
+        margin-top: 0px;
         align-items: center;
     }
 
@@ -111,5 +130,10 @@
 
     .main .scoreBoard {
         margin-top: 0;
+    }
+
+    .main .scoreBoard span {
+        font-size: 3rem;
+        font-weight: bold;
     }
 }

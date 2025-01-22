@@ -16,8 +16,6 @@ function ComputerSection({
         }
     }, [userChoice]);
 
-    console.log(computerChoice);
-
     return (
         <div className={styles.computerSection}>
             {computerChoice ? (
