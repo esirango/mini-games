@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
+                <title>Mini Games</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Component {...pageProps} />

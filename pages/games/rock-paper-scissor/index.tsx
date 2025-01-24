@@ -5,6 +5,7 @@ import styles from "@/styles/games/rock-paper-scissor/rockPaperScissor.module.cs
 import UserSection from "@/components/rock-paper-scissor/UserSection";
 import ScoreBoard from "@/components/rock-paper-scissor/ScoreBoard";
 import ComputerSection from "@/components/rock-paper-scissor/ComputerSection";
+import Head from "next/head";
 
 function Index() {
     const choices = ["rock", "paper", "scissor"];
@@ -59,26 +60,34 @@ function Index() {
     };
 
     return (
-        <div className={styles.main}>
-            <h1>Rock Paper Scissor</h1>
-            <span className={styles.restartButton} onClick={restartHandler}>
-                Reset Game
-            </span>
-            <div className={styles.gameBoard}>
-                <UserSection
-                    choices={choices}
-                    userChoice={userChoice}
-                    setUserChoice={setUserChoice}
-                />
-                <ComputerSection
-                    choices={choices}
-                    computerChoice={computerChoice}
-                    userChoice={userChoice}
-                    setComputerChoice={setComputerChoice}
+        <>
+            <Head>
+                <title>Rock Paper Scissor Game</title>
+            </Head>
+            <div className={styles.main}>
+                <h1>Rock Paper Scissor</h1>
+                <span className={styles.restartButton} onClick={restartHandler}>
+                    Reset Game
+                </span>
+                <div className={styles.gameBoard}>
+                    <UserSection
+                        choices={choices}
+                        userChoice={userChoice}
+                        setUserChoice={setUserChoice}
+                    />
+                    <ComputerSection
+                        choices={choices}
+                        computerChoice={computerChoice}
+                        userChoice={userChoice}
+                        setComputerChoice={setComputerChoice}
+                    />
+                </div>
+                <ScoreBoard
+                    computerScore={computerScore}
+                    userScore={userScore}
                 />
             </div>
-            <ScoreBoard computerScore={computerScore} userScore={userScore} />
-        </div>
+        </>
     );
 }
 
