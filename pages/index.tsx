@@ -21,8 +21,8 @@ export default function Home() {
                         <Link href={"/games/puzzle"}>
                             <li>Puzzle</li>
                         </Link>
-                        <Link href={"/games/guess-number"}>
-                            <li>Guess Number</li>
+                        <Link href={"/games/snake"}>
+                            <li>Snake</li>
                         </Link>
                         <Link href={"/games/endless-runner"}>
                             <li>Endless Runner</li>
