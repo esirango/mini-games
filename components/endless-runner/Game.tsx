@@ -70,7 +70,7 @@ const Game = () => {
         const interval = setInterval(() => {
             jumpHeight += 5;
             setPlayerY(jumpHeight);
-            if (jumpHeight >= 120) {
+            if (jumpHeight >= 130) {
                 clearInterval(interval);
                 setIsJumping(false);
             }
@@ -91,7 +91,7 @@ const Game = () => {
 
     useEffect(() => {
         const collision = obstacles.some(
-            (obstacle: any) => obstacle.x < 50 && obstacle.x > 0 && playerY < 50
+            (obstacle: any) => obstacle.x < 80 && obstacle.x > 0 && playerY < 40
         );
 
         if (collision) {
@@ -104,8 +104,6 @@ const Game = () => {
 
         setGameSpeed(+score > 4 ? 15 : 30);
     }, [obstacles, playerY, score, highScore]);
-
-    console.log(gameSpeed);
 
     const handleKeyDown = (e: any) => {
         if (isGameOver) {
