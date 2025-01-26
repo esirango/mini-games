@@ -8,7 +8,7 @@ const Game = () => {
     const [isJumping, setIsJumping] = useState<boolean>(false);
     const [score, setScore] = useState<number | string>(0);
     const [highScore, setHighScore] = useState<number | string>(0);
-    const [gameSpeed, setGameSpeed] = useState<number>(30);
+    const [gameSpeed, setGameSpeed] = useState<number>(20);
 
     const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
@@ -70,11 +70,14 @@ const Game = () => {
         const interval = setInterval(() => {
             jumpHeight += 5;
             setPlayerY(jumpHeight);
-            if (jumpHeight >= 130) {
+            if (
+                (window.innerWidth > 768 && jumpHeight >= 150) ||
+                (window.innerWidth < 768 && jumpHeight >= 100)
+            ) {
                 clearInterval(interval);
                 setIsJumping(false);
             }
-        }, 15);
+        }, 10);
 
         return () => clearInterval(interval);
     }, [isJumping]);
@@ -91,7 +94,7 @@ const Game = () => {
 
     useEffect(() => {
         const collision = obstacles.some(
-            (obstacle: any) => obstacle.x < 80 && obstacle.x > 0 && playerY < 40
+            (obstacle: any) => obstacle.x < 90 && obstacle.x > 0 && playerY < 30
         );
 
         if (collision) {
@@ -102,7 +105,7 @@ const Game = () => {
             }
         }
 
-        setGameSpeed(+score > 4 ? 15 : 30);
+        setGameSpeed(+score > 4 ? 15 : 20);
     }, [obstacles, playerY, score, highScore]);
 
     const handleKeyDown = (e: any) => {
@@ -150,16 +153,15 @@ const Game = () => {
                     <h2>Score: {score}</h2>
                 </div>
                 <div
+                    className={styles.player}
                     style={{
                         background: `url(/assets/img/endless-runner/cowboy1.png)`,
                         position: "absolute",
                         bottom: `${playerY}px`,
                         left: "20px",
-                        width: "90px",
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
-                        height: "90px",
                     }}
                 ></div>
 

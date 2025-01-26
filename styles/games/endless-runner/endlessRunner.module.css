@@ -29,11 +29,16 @@
     margin-top: 50px;
 }
 
+.endlessRunnerMain .gameBoard .player {
+    width: 140px;
+    height: 140px;
+}
+
 .endlessRunnerMain .gameBoard .obstacles {
     position: absolute;
     bottom: 0px;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 90px;
 }
 
 .endlessRunnerMain .gameBoard .gameOverSection {
@@ -73,7 +78,20 @@
         height: 300px;
         margin-top: 120px;
     }
+
     .endlessRunnerMain .gameBoard .gameOverSection {
         width: 50%;
+    }
+
+    .endlessRunnerMain .gameBoard .player {
+        width: 100px;
+        height: 100px;
+    }
+
+    .endlessRunnerMain .gameBoard .obstacles {
+        position: absolute;
+        bottom: 0px;
+        width: 70px;
+        height: 70px;
     }
 }
