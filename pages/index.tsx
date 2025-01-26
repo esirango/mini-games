@@ -25,7 +25,7 @@ export default function Home() {
                             <li>Snake</li>
                         </Link>
                         <Link href={"/games/endless-runner"}>
-                            <li>Endless Runner</li>
+                            <li>Endless Cowboy</li>
                         </Link>
                         <Link href={"/games/dots-and-boxes"}>
                             <li>Dots and Boxes</li>
