@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "@/styles/games/snake/snake.module.css";
 import classNames from "classnames";
 
-const GRID_SIZE = 20;
+const GRID_SIZE = 15;
 
 function Game() {
     const [snake, setSnake] = useState<Array<any>>([[10, 10]]);
