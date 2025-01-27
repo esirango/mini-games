@@ -6,8 +6,8 @@ import classNames from "classnames";
 const GRID_SIZE = 15;
 
 function Game() {
-    const [snake, setSnake] = useState<Array<any>>([[10, 10]]);
-    const [food, setFood] = useState<Array<number>>([15, 15]);
+    const [snake, setSnake] = useState<Array<any>>([[5, 5]]);
+    const [food, setFood] = useState<Array<number>>([10, 10]);
     const [direction, setDirection] = useState<string>("RIGHT");
     const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
