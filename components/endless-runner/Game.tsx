@@ -105,7 +105,7 @@ const Game = () => {
             }
         }
 
-        setGameSpeed(+score > 4 ? 15 : 20);
+        setGameSpeed(+score > 4 ? 15 : +score > 9 ? 10 : 20);
     }, [obstacles, playerY, score, highScore]);
 
     const handleKeyDown = (e: any) => {
