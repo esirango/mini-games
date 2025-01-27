@@ -157,21 +157,37 @@ function Game() {
                     <div className={styles.controls}>
                         <i
                             className="fas fa-arrow-up"
-                            onClick={() => setDirection("UP")}
+                            onClick={() => {
+                                if (direction !== "DOWN") {
+                                    setDirection("UP");
+                                }
+                            }}
                         ></i>
                         <div>
                             <i
                                 className="fas fa-arrow-left"
-                                onClick={() => setDirection("LEFT")}
+                                onClick={() => {
+                                    if (direction !== "RIGHT") {
+                                        setDirection("LEFT");
+                                    }
+                                }}
                             ></i>
                             <i
                                 className="fas fa-arrow-right"
-                                onClick={() => setDirection("RIGHT")}
+                                onClick={() => {
+                                    if (direction !== "LEFT") {
+                                        setDirection("RIGHT");
+                                    }
+                                }}
                             ></i>
                         </div>
                         <i
                             className="fas fa-arrow-down"
-                            onClick={() => setDirection("DOWN")}
+                            onClick={() => {
+                                if (direction !== "UP") {
+                                    setDirection("DOWN");
+                                }
+                            }}
                         ></i>
                     </div>
                 </>
