@@ -44,6 +44,27 @@
     color: #000;
 }
 
+.main .controls {
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 20px;
+    box-shadow: 2px 2px 8px 2px #00000039;
+}
+
+.main .controls i {
+    color: #000;
+    cursor: pointer;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .main .gameBoard {
     display: grid;
     grid-template-rows: repeat(20, 25px);
@@ -88,5 +109,9 @@
         width: 20px;
         height: 20px;
         background-color: #fff;
+    }
+
+    .main .controls {
+        display: flex;
     }
 }

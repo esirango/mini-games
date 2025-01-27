@@ -128,29 +128,53 @@ function Game() {
                     <button onClick={resetGame}>Retry</button>
                 </div>
             ) : (
-                <div className={styles.gameBoard}>
-                    {Array.from({ length: GRID_SIZE }).map((_, row) => (
-                        <div key={row} className={styles.row}>
-                            {Array.from({ length: GRID_SIZE }).map((_, col) => {
-                                const isSnake = snake.some(
-                                    ([x, y]) => x === col && y === row
-                                );
-                                const isFood =
-                                    food[0] === col && food[1] === row;
-                                return (
-                                    <div
-                                        key={col}
-                                        className={classNames(
-                                            styles.cell,
-                                            isSnake ? styles.snake : "",
-                                            isFood ? styles.food : ""
-                                        )}
-                                    ></div>
-                                );
-                            })}
+                <>
+                    <div className={styles.gameBoard}>
+                        {Array.from({ length: GRID_SIZE }).map((_, row) => (
+                            <div key={row} className={styles.row}>
+                                {Array.from({ length: GRID_SIZE }).map(
+                                    (_, col) => {
+                                        const isSnake = snake.some(
+                                            ([x, y]) => x === col && y === row
+                                        );
+                                        const isFood =
+                                            food[0] === col && food[1] === row;
+                                        return (
+                                            <div
+                                                key={col}
+                                                className={classNames(
+                                                    styles.cell,
+                                                    isSnake ? styles.snake : "",
+                                                    isFood ? styles.food : ""
+                                                )}
+                                            ></div>
+                                        );
+                                    }
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.controls}>
+                        <i
+                            className="fas fa-arrow-up"
+                            onClick={() => setDirection("UP")}
+                        ></i>
+                        <div>
+                            <i
+                                className="fas fa-arrow-left"
+                                onClick={() => setDirection("LEFT")}
+                            ></i>
+                            <i
+                                className="fas fa-arrow-right"
+                                onClick={() => setDirection("RIGHT")}
+                            ></i>
                         </div>
-                    ))}
-                </div>
+                        <i
+                            className="fas fa-arrow-down"
+                            onClick={() => setDirection("DOWN")}
+                        ></i>
+                    </div>
+                </>
             )}
         </div>
     );
