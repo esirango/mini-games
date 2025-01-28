@@ -41,13 +41,19 @@ function Game() {
     const [wrongAnswers, setWrongAnswers] = useState<number>(0);
     const [isLose, setIsLose] = useState<boolean>(false);
     const [isWin, setIsWin] = useState<boolean>(false);
+    const [selectedLetter, setSelectedLetter] = useState<Array<string>>([]);
 
     return (
         <div className={styles.main}>
             <h1>Hangman</h1>
             <div className={styles.gameBoard}>
                 <Picture isWin={isWin} wrongAnswers={wrongAnswers} />
-                <Words words={words} setWrongAnswers={setWrongAnswers} />
+                <Words
+                    words={words}
+                    selectedLetter={selectedLetter}
+                    setWrongAnswers={setWrongAnswers}
+                    setSelectedLetter={setSelectedLetter}
+                />
                 <Alphabet alphabet={upperAlphabet} />
             </div>
         </div>
