@@ -6,6 +6,8 @@ import Picture from "./Picture";
 import Words from "./Words";
 import Alphabet from "./Alphabet";
 
+const COUNT_WRONG_ANSWERS = 6;
+
 function Game() {
     const words = [
         {
@@ -50,7 +52,9 @@ function Game() {
                 <Picture isWin={isWin} wrongAnswers={wrongAnswers} />
                 <Words
                     words={words}
+                    countWrongAnswers={COUNT_WRONG_ANSWERS}
                     selectedLetter={selectedLetter}
+                    wrongAnswers={wrongAnswers}
                     setWrongAnswers={setWrongAnswers}
                     setSelectedLetter={setSelectedLetter}
                 />

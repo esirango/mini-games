@@ -4,6 +4,8 @@ import styles from "@/styles/games/hangman/hangman.module.css";
 
 function Words({
     words,
+    wrongAnswers,
+    countWrongAnswers,
     setWrongAnswers,
     setSelectedLetter,
     selectedLetter,
@@ -11,6 +13,7 @@ function Words({
     const [newWord, setNewWord] = useState<any>();
     const [newObjectWord, setNewObjectWord] = useState<any>({});
 
+    // generate new word
     useEffect(() => {
         const generateNewWord = () => {
             const randomIndex = Math.floor(Math.random() * words.length);
@@ -23,20 +26,33 @@ function Words({
         generateNewWord();
     }, []);
 
+    // match words
     useEffect(() => {
+        if (
+            wrongAnswers === countWrongAnswers ||
+            typeof newWord === "undefined"
+        )
+            return;
+
         const matchWords = (e: any) => {
             const enterLetter = e.key.toLowerCase();
 
+            if (!newWord?.some((w: string) => w === enterLetter)) {
+                setWrongAnswers((prev: number) => prev + 1);
+            }
+
             setSelectedLetter((prev: any) =>
                 prev.some((p: any) => p === enterLetter)
-                    ? [...prev]
+                    ? prev
                     : [...prev, enterLetter]
             );
         };
 
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
-    }, [selectedLetter]);
+    }, [selectedLetter, newWord]);
+
+    console.log(selectedLetter);
 
     return (
         <>
