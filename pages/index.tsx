@@ -27,12 +27,12 @@ export default function Home() {
                         <Link href={"/games/endless-runner"}>
                             <li>Endless Cowboy</li>
                         </Link>
-                        <Link href={"/games/dots-and-boxes"}>
+                        {/* <Link href={"/games/dots-and-boxes"}>
                             <li>Dots and Boxes</li>
-                        </Link>
-                        <Link href={"/games/red-hands"}>
+                        </Link> */}
+                        {/* <Link href={"/games/red-hands"}>
                             <li>Red Hands</li>
-                        </Link>
+                        </Link> */}
                         <Link href={"/games/hangman"}>
                             <li>Hangman</li>
                         </Link>

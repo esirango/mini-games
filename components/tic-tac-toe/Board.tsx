@@ -1,6 +1,6 @@
 import React from "react";
 
-import Square from "../Square";
+import Square from "./Square";
 
 import styles from "@/styles/games/tic-tac-toe/ticTacToe.module.css";
 
