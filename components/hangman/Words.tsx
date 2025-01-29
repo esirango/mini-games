@@ -19,16 +19,18 @@ function Words({
 
     // generate new word
     useEffect(() => {
-        const generateNewWord = () => {
-            const randomIndex = Math.floor(Math.random() * words.length);
-            const objectWord = words[randomIndex];
-            const word = objectWord?.word?.split("");
-            setNewWord([...word]);
-            setNewObjectWord(objectWord);
-        };
+        if (!newWord) {
+            const generateNewWord = () => {
+                const randomIndex = Math.floor(Math.random() * words.length);
+                const objectWord = words[randomIndex];
+                const word = objectWord?.word?.split("");
+                setNewWord([...word]);
+                setNewObjectWord(objectWord);
+            };
 
-        generateNewWord();
-    }, []);
+            generateNewWord();
+        }
+    }, [newWord]);
 
     // match words
     useEffect(() => {
@@ -40,7 +42,7 @@ function Words({
             if (selectedLetter.includes(enterLetter)) return;
 
             setSelectedLetter((prev: any) => [...prev, enterLetter]);
-            if (!newWord?.includes(enterLetter.toLowerCase())) {
+            if (!newWord?.includes(enterLetter)) {
                 setWrongAnswers((prev: number) => prev + 1);
             }
         };
@@ -55,15 +57,22 @@ function Words({
         }
     }, [wrongAnswers]);
 
-    console.log(selectedLetter);
+    const resetGame = () => {
+        setIsLose(false);
+        setNewWord("");
+        setWrongAnswers(0);
+        setSelectedLetter([]);
+    };
 
     return (
         <>
             {newObjectWord ? (
                 <>
                     <div className={styles.words}>
-                        {isWin ? (
-                            <p className={styles.reset}>Reset Game</p>
+                        {isLose ? (
+                            <div className={styles.reset} onClick={resetGame}>
+                                <p>Reset Game</p>
+                            </div>
                         ) : (
                             <div className={styles.hint}>
                                 <span>Hint: </span>
@@ -71,24 +80,28 @@ function Words({
                             </div>
                         )}
                         <div className={styles.word}>
-                            {newWord?.map((letter: string, index: number) => (
-                                <span key={`${letter}${index}`}>
-                                    {letter === " " ? (
-                                        <small> </small>
-                                    ) : (
-                                        <>
-                                            <small>
-                                                {selectedLetter.some(
-                                                    (l: string) => l === letter
-                                                )
-                                                    ? letter.toUpperCase()
-                                                    : ""}
-                                            </small>{" "}
-                                            <small>_</small>
-                                        </>
-                                    )}
-                                </span>
-                            ))}
+                            {newWord &&
+                                newWord?.map(
+                                    (letter: string, index: number) => (
+                                        <span key={`${letter}${index}`}>
+                                            {letter === " " ? (
+                                                <small> </small>
+                                            ) : (
+                                                <>
+                                                    <small>
+                                                        {selectedLetter.some(
+                                                            (l: string) =>
+                                                                l === letter
+                                                        )
+                                                            ? letter.toUpperCase()
+                                                            : ""}
+                                                    </small>{" "}
+                                                    <small>_</small>
+                                                </>
+                                            )}
+                                        </span>
+                                    )
+                                )}
                         </div>
                     </div>
                 </>

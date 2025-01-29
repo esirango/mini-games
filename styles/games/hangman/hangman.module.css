@@ -22,14 +22,38 @@
     flex-direction: column;
     align-items: center;
     font-size: 2.2rem;
-    margin: 50px 0;
+    margin: 30px 0 40px 0;
     font-weight: bold;
 }
 
-.main .gameBoard .words .hint {
+.main .gameBoard .words .hint,
+.main .gameBoard .words .reset p {
     font-size: 1rem;
     font-weight: 200;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .gameBoard .words .reset p {
+    background-color: #234050;
+    box-shadow: 2px 2px 2px #202020;
+    border-radius: 4px;
+    padding: 0 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: all ease-in 0.2s;
+}
+
+.main .gameBoard .words .reset p:hover {
+    background-color: #33586c;
+}
+
+.main .gameBoard .words .reset p:active {
+    box-shadow: inherit;
 }
 
 .main .gameBoard .words .hint span {
