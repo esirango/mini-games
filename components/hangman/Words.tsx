@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import styles from "@/styles/games/hangman/hangman.module.css";
 
@@ -13,6 +13,8 @@ function Words({
 }: any) {
     const [newWord, setNewWord] = useState<any>();
     const [newObjectWord, setNewObjectWord] = useState<any>({});
+
+    const prevWrongAnswers = useRef<number>(wrongAnswers);
 
     // generate new word
     useEffect(() => {
@@ -38,24 +40,52 @@ function Words({
         const matchWords = (e: any) => {
             const enterLetter = e.key.toLowerCase();
 
-            if (selectedLetter.find((l: string) => l === enterLetter)) {
-                return;
-            }
+            if (selectedLetter.includes(enterLetter)) return;
 
             setSelectedLetter((prev: any) => [...prev, enterLetter]);
-        };
 
-        if (
-            !newWord?.some(
-                (w: string) => w === selectedLetter[selectedLetter?.length - 1]
-            )
-        ) {
-            setWrongAnswers((prev: number) => prev + 1);
-        }
+            if (!newWord?.includes(enterLetter)) {
+                setWrongAnswers((prev: number) => {
+                    prevWrongAnswers.current = prev + 1;
+                    return prev + 1;
+                });
+            }
+        };
 
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
     }, [selectedLetter, newWord]);
+
+    const [nextWrongAnswers, setNextWrongAnswers] = useState(wrongAnswers);
+
+    useEffect(() => {
+        if (
+            wrongAnswers === countWrongAnswers ||
+            typeof newWord === "undefined"
+        )
+            return;
+
+        const matchWords = (e: any) => {
+            const enterLetter = e.key.toLowerCase();
+
+            if (selectedLetter.includes(enterLetter)) return;
+
+            setSelectedLetter((prev: any) => [...prev, enterLetter]);
+
+            if (!newWord?.includes(enterLetter)) {
+                setNextWrongAnswers((prev: number) => prev + 1);
+            }
+        };
+
+        window.addEventListener("keydown", matchWords);
+        return () => window.removeEventListener("keydown", matchWords);
+    }, [selectedLetter, newWord]);
+
+    useEffect(() => {
+        if (wrongAnswers !== nextWrongAnswers) {
+            setWrongAnswers(nextWrongAnswers);
+        }
+    }, [nextWrongAnswers]);
 
     return (
         <>

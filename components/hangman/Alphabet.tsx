@@ -18,8 +18,6 @@ function Alphabet({
         setSelectedLetter((prev: any) => [...prev, letter.toLowerCase()]);
     };
 
-    console.log(selectedLetter);
-
     return (
         <div className={styles.alphabet}>
             {alphabet?.map((letter: string, index: number) => (
@@ -34,6 +32,8 @@ function Alphabet({
                                   textDecoration: "#bf1c1c line-through",
                                   pointerEvents: "none",
                               }
+                            : wrongAnswers === countWrongAnswers
+                            ? { pointerEvents: "none" }
                             : {}
                     }
                 >
