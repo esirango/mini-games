@@ -43,15 +43,14 @@ function Words({
             if (selectedLetter.includes(enterLetter)) return;
 
             setSelectedLetter((prev: any) => [...prev, enterLetter]);
-
-            if (!newWord?.includes(enterLetter)) {
-                setWrongAnswers((prev: number) => {
-                    prevWrongAnswers.current = prev + 1;
-                    return prev + 1;
-                });
-            }
         };
 
+        if (!newWord?.includes(selectedLetter[selectedLetter?.length - 1])) {
+            setWrongAnswers((prev: number) => {
+                prevWrongAnswers.current = prev + 1;
+                return prev + 1;
+            });
+        }
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
     }, [selectedLetter, newWord]);
