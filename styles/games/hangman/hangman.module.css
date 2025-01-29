@@ -28,11 +28,14 @@
 
 .main .gameBoard .words .hint {
     font-size: 1rem;
+    font-weight: 200;
+    margin-bottom: 50px;
 }
 
 .main .gameBoard .words .hint span {
     font-size: 1.2rem;
     color: #74e4f3;
+    font-weight: bold;
 }
 .main .gameBoard .words .word {
     display: flex;
@@ -48,7 +51,7 @@
 }
 
 .main .gameBoard .words span small {
-    margin: 0 5px;
+    margin: -13px 5px;
     width: 40px;
     height: 40px;
 }
