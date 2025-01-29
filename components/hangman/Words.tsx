@@ -4,6 +4,7 @@ import styles from "@/styles/games/hangman/hangman.module.css";
 
 function Words({
     words,
+    isWin,
     wrongAnswers,
     countWrongAnswers,
     setWrongAnswers,
@@ -37,32 +38,38 @@ function Words({
         const matchWords = (e: any) => {
             const enterLetter = e.key.toLowerCase();
 
-            if (!newWord?.some((w: string) => w === enterLetter)) {
-                setWrongAnswers((prev: number) => prev + 1);
+            if (selectedLetter.find((l: string) => l === enterLetter)) {
+                return;
             }
 
-            setSelectedLetter((prev: any) =>
-                prev.some((p: any) => p === enterLetter)
-                    ? prev
-                    : [...prev, enterLetter]
-            );
+            setSelectedLetter((prev: any) => [...prev, enterLetter]);
         };
+
+        if (
+            !newWord?.some(
+                (w: string) => w === selectedLetter[selectedLetter?.length - 1]
+            )
+        ) {
+            setWrongAnswers((prev: number) => prev + 1);
+        }
 
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
     }, [selectedLetter, newWord]);
-
-    console.log(selectedLetter);
 
     return (
         <>
             {newObjectWord ? (
                 <>
                     <div className={styles.words}>
-                        <div className={styles.hint}>
-                            <span>Hint: </span>
-                            {newObjectWord?.hint}
-                        </div>
+                        {isWin ? (
+                            <p className={styles.reset}>Reset Game</p>
+                        ) : (
+                            <div className={styles.hint}>
+                                <span>Hint: </span>
+                                {newObjectWord?.hint}
+                            </div>
+                        )}
                         <div className={styles.word}>
                             {newWord?.map((letter: string, index: number) => (
                                 <span key={`${letter}${index}`}>
