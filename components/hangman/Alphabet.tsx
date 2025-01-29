@@ -19,7 +19,7 @@ function Alphabet({
 
         setSelectedLetter((prev: any) => [...prev, letter.toLowerCase()]);
 
-        if (!newWord?.includes(selectedLetter[letter])) {
+        if (!newWord?.includes(letter)) {
             setWrongAnswers((prev: number) => prev + 1);
         }
     };
@@ -29,7 +29,7 @@ function Alphabet({
             {alphabet?.map((letter: string, index: number) => (
                 <span
                     key={`${letter}${index}`}
-                    onClick={() => clickLetter(letter)}
+                    onClick={() => clickLetter(letter.toLowerCase())}
                     style={
                         selectedLetter?.find(
                             (l: string) => l === letter.toLowerCase()

@@ -57,6 +57,8 @@ function Game() {
                     selectedLetter={selectedLetter}
                     wrongAnswers={wrongAnswers}
                     newWord={newWord}
+                    isLose={isLose}
+                    setIsLose={setIsLose}
                     setNewWord={setNewWord}
                     setWrongAnswers={setWrongAnswers}
                     setSelectedLetter={setSelectedLetter}

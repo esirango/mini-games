@@ -5,6 +5,8 @@ import styles from "@/styles/games/hangman/hangman.module.css";
 function Words({
     words,
     isWin,
+    isLose,
+    setIsLose,
     wrongAnswers,
     countWrongAnswers,
     setWrongAnswers,
@@ -30,11 +32,7 @@ function Words({
 
     // match words
     useEffect(() => {
-        if (
-            wrongAnswers === countWrongAnswers ||
-            typeof newWord === "undefined"
-        )
-            return;
+        if (isLose || typeof newWord === "undefined") return;
 
         const matchWords = (e: any) => {
             const enterLetter = e.key.toLowerCase();
@@ -42,14 +40,22 @@ function Words({
             if (selectedLetter.includes(enterLetter)) return;
 
             setSelectedLetter((prev: any) => [...prev, enterLetter]);
-            if (!newWord?.includes(selectedLetter[enterLetter])) {
+            if (!newWord?.includes(enterLetter.toLowerCase())) {
                 setWrongAnswers((prev: number) => prev + 1);
             }
         };
 
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
-    }, [selectedLetter, newWord]);
+    }, [selectedLetter, newWord, isLose]);
+
+    useEffect(() => {
+        if (wrongAnswers === countWrongAnswers) {
+            setIsLose(true);
+        }
+    }, [wrongAnswers]);
+
+    console.log(selectedLetter);
 
     return (
         <>
