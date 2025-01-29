@@ -40,6 +40,7 @@ function Game() {
     const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
     const upperAlphabet = alphabet.map((char) => char.toUpperCase());
 
+    const [newWord, setNewWord] = useState<any>();
     const [wrongAnswers, setWrongAnswers] = useState<number>(0);
     const [isLose, setIsLose] = useState<boolean>(false);
     const [isWin, setIsWin] = useState<boolean>(false);
@@ -55,6 +56,8 @@ function Game() {
                     countWrongAnswers={COUNT_WRONG_ANSWERS}
                     selectedLetter={selectedLetter}
                     wrongAnswers={wrongAnswers}
+                    newWord={newWord}
+                    setNewWord={setNewWord}
                     setWrongAnswers={setWrongAnswers}
                     setSelectedLetter={setSelectedLetter}
                 />
@@ -64,6 +67,8 @@ function Game() {
                     wrongAnswers={wrongAnswers}
                     setSelectedLetter={setSelectedLetter}
                     alphabet={upperAlphabet}
+                    newWord={newWord}
+                    setWrongAnswers={setWrongAnswers}
                 />
             </div>
         </div>

@@ -8,6 +8,8 @@ function Alphabet({
     setSelectedLetter,
     wrongAnswers,
     countWrongAnswers,
+    setWrongAnswers,
+    newWord,
 }: any) {
     const clickLetter = (letter: string) => {
         if (wrongAnswers === countWrongAnswers) return;
@@ -16,6 +18,10 @@ function Alphabet({
         }
 
         setSelectedLetter((prev: any) => [...prev, letter.toLowerCase()]);
+
+        if (!newWord?.includes(selectedLetter[letter])) {
+            setWrongAnswers((prev: number) => prev + 1);
+        }
     };
 
     return (
