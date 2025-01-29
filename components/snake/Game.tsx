@@ -108,8 +108,8 @@ function Game() {
     };
 
     const resetGame = () => {
-        setSnake([[10, 10]]);
-        setFood([15, 15]);
+        setSnake([[5, 5]]);
+        setFood([10, 10]);
         setGameSpeed(200);
         setScore(0);
         setDirection("RIGHT");

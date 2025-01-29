@@ -59,24 +59,30 @@ function Words({
             {newObjectWord ? (
                 <>
                     <div className={styles.words}>
-                        {newWord?.map((letter: string, index: number) => (
-                            <span key={`${letter}${index}`}>
-                                {letter === " " ? (
-                                    <small> </small>
-                                ) : (
-                                    <>
-                                        <small>
-                                            {selectedLetter.some(
-                                                (l: string) => l === letter
-                                            )
-                                                ? letter.toUpperCase()
-                                                : ""}
-                                        </small>{" "}
-                                        <small>_</small>
-                                    </>
-                                )}
-                            </span>
-                        ))}
+                        <div className={styles.hint}>
+                            <span>Hint: </span>
+                            {newObjectWord?.hint}
+                        </div>
+                        <div className={styles.word}>
+                            {newWord?.map((letter: string, index: number) => (
+                                <span key={`${letter}${index}`}>
+                                    {letter === " " ? (
+                                        <small> </small>
+                                    ) : (
+                                        <>
+                                            <small>
+                                                {selectedLetter.some(
+                                                    (l: string) => l === letter
+                                                )
+                                                    ? letter.toUpperCase()
+                                                    : ""}
+                                            </small>{" "}
+                                            <small>_</small>
+                                        </>
+                                    )}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </>
             ) : (
