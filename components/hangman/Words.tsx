@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import styles from "@/styles/games/hangman/hangman.module.css";
+import classNames from "classnames";
 
 function Words({
     words,
@@ -95,7 +96,14 @@ function Words({
                                 <span>Hint: </span> {newObjectWord?.hint}
                             </div>
                         )}
-                        <div className={styles.word}>
+                        <div
+                            className={classNames(
+                                styles.word,
+                                (newWord?.includes(" ") ||
+                                    newWord?.length > 9) &&
+                                    styles.wrap
+                            )}
+                        >
                             {newWord &&
                                 newWord?.map(
                                     (letter: string, index: number) => (

@@ -32,6 +32,7 @@
     font-weight: 200;
     margin-bottom: 30px;
     width: 100%;
+    max-height: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -67,20 +68,16 @@
 }
 .main .gameBoard .words .word {
     display: flex;
-    justify-content: center;
-    align-items: center;
     user-select: none;
 }
 
 .main .gameBoard .words .word span {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .main .gameBoard .words span small {
-    margin: -13px 5px;
+    margin: -13px 0px;
     width: 40px;
     height: 40px;
 }
@@ -134,6 +131,32 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+    }
+
+    .main .gameBoard .words .hint {
+        width: 80%;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .main .gameBoard .words .hint span {
+        margin-bottom: 5px;
+    }
+
+    .main .gameBoard .words .wrap {
+        width: 250px;
+        flex-wrap: wrap;
+    }
+
+    .main .gameBoard .words .word span {
+        margin: 15px 0;
+        display: flex;
+        text-align: center;
+    }
+
+    .main .gameBoard .words {
+        margin: 30px 0 10px 0;
     }
 }
 
