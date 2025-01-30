@@ -127,4 +127,18 @@
         height: 250px;
         border-radius: 4px;
     }
+
+    .main .gameBoard .alphabet {
+        width: 350px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 468px) {
+    .main .gameBoard .alphabet {
+        width: 250px;
+    }
 }
