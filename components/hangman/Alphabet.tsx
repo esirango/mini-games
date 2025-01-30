@@ -8,8 +8,6 @@ function Alphabet({
     isLose,
     selectedLetter,
     setSelectedLetter,
-    wrongAnswers,
-    countWrongAnswers,
     setWrongAnswers,
     newWord,
 }: any) {

@@ -66,15 +66,13 @@ function Game() {
                     setSelectedLetter={setSelectedLetter}
                 />
                 <Alphabet
-                    countWrongAnswers={COUNT_WRONG_ANSWERS}
-                    selectedLetter={selectedLetter}
-                    wrongAnswers={wrongAnswers}
-                    setSelectedLetter={setSelectedLetter}
-                    alphabet={upperAlphabet}
-                    newWord={newWord}
-                    setWrongAnswers={setWrongAnswers}
                     isWin={isWin}
                     isLose={isLose}
+                    newWord={newWord}
+                    alphabet={upperAlphabet}
+                    selectedLetter={selectedLetter}
+                    setWrongAnswers={setWrongAnswers}
+                    setSelectedLetter={setSelectedLetter}
                 />
             </div>
         </div>

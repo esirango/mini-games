@@ -51,7 +51,7 @@ function Words({
 
         window.addEventListener("keydown", matchWords);
         return () => window.removeEventListener("keydown", matchWords);
-    }, [selectedLetter, newWord, isLose]);
+    }, [selectedLetter, newWord, isLose, isWin]);
 
     useEffect(() => {
         if (wrongAnswers === countWrongAnswers) {
@@ -108,7 +108,7 @@ function Words({
                                                         {selectedLetter.some(
                                                             (l: string) =>
                                                                 l === letter
-                                                        )
+                                                        ) || isLose
                                                             ? letter.toUpperCase()
                                                             : ""}
                                                     </small>{" "}
