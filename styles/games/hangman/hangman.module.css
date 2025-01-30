@@ -38,6 +38,10 @@
     align-items: center;
 }
 
+.main .gameBoard .words .hint span {
+    margin-right: 5px;
+}
+
 .main .gameBoard .words .reset p {
     background-color: #234050;
     box-shadow: 2px 2px 2px #202020;

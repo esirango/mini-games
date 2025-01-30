@@ -6,6 +6,7 @@ function Words({
     words,
     isWin,
     isLose,
+    setIsWin,
     setIsLose,
     wrongAnswers,
     countWrongAnswers,
@@ -34,7 +35,7 @@ function Words({
 
     // match words
     useEffect(() => {
-        if (isLose || typeof newWord === "undefined") return;
+        if (isWin || isLose || typeof newWord === "undefined") return;
 
         const matchWords = (e: any) => {
             const enterLetter = e.key.toLowerCase();
@@ -42,6 +43,7 @@ function Words({
             if (selectedLetter.includes(enterLetter)) return;
 
             setSelectedLetter((prev: any) => [...prev, enterLetter]);
+
             if (!newWord?.includes(enterLetter)) {
                 setWrongAnswers((prev: number) => prev + 1);
             }
@@ -57,8 +59,23 @@ function Words({
         }
     }, [wrongAnswers]);
 
+    useEffect(() => {
+        if (!newObjectWord) return;
+
+        const rightAnswersLength = selectedLetter?.length - wrongAnswers;
+
+        const uniqueCharsLength = new Set(
+            newObjectWord?.word?.split(" ").join("")
+        ).size;
+
+        if (rightAnswersLength === uniqueCharsLength) {
+            setIsWin(true);
+        }
+    }, [wrongAnswers, selectedLetter, newObjectWord]);
+
     const resetGame = () => {
         setIsLose(false);
+        setIsWin(false);
         setNewWord("");
         setWrongAnswers(0);
         setSelectedLetter([]);
@@ -69,14 +86,13 @@ function Words({
             {newObjectWord ? (
                 <>
                     <div className={styles.words}>
-                        {isLose ? (
+                        {isLose || isWin ? (
                             <div className={styles.reset} onClick={resetGame}>
                                 <p>Reset Game</p>
                             </div>
                         ) : (
                             <div className={styles.hint}>
-                                <span>Hint: </span>
-                                {newObjectWord?.hint}
+                                <span>Hint: </span> {newObjectWord?.hint}
                             </div>
                         )}
                         <div className={styles.word}>

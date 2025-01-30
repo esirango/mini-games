@@ -58,6 +58,8 @@ function Game() {
                     wrongAnswers={wrongAnswers}
                     newWord={newWord}
                     isLose={isLose}
+                    isWin={isWin}
+                    setIsWin={setIsWin}
                     setIsLose={setIsLose}
                     setNewWord={setNewWord}
                     setWrongAnswers={setWrongAnswers}
@@ -71,6 +73,8 @@ function Game() {
                     alphabet={upperAlphabet}
                     newWord={newWord}
                     setWrongAnswers={setWrongAnswers}
+                    isWin={isWin}
+                    isLose={isLose}
                 />
             </div>
         </div>

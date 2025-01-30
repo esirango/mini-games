@@ -4,6 +4,8 @@ import styles from "@/styles/games/hangman/hangman.module.css";
 
 function Alphabet({
     alphabet,
+    isWin,
+    isLose,
     selectedLetter,
     setSelectedLetter,
     wrongAnswers,
@@ -12,7 +14,7 @@ function Alphabet({
     newWord,
 }: any) {
     const clickLetter = (letter: string) => {
-        if (wrongAnswers === countWrongAnswers) return;
+        if (isWin || isLose) return;
         if (selectedLetter.find((l: string) => l === letter)) {
             return;
         }
@@ -38,7 +40,7 @@ function Alphabet({
                                   textDecoration: "#bf1c1c line-through",
                                   pointerEvents: "none",
                               }
-                            : wrongAnswers === countWrongAnswers
+                            : isLose || isWin
                             ? { pointerEvents: "none" }
                             : {}
                     }
