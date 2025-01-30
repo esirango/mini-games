@@ -60,7 +60,7 @@ function Words({
     }, [wrongAnswers]);
 
     useEffect(() => {
-        if (!newObjectWord) return;
+        if (!newObjectWord?.word) return;
 
         const rightAnswersLength = selectedLetter?.length - wrongAnswers;
 
